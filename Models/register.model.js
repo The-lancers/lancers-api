@@ -3,15 +3,20 @@ const bycryptjs = require('bycryptjs')
 
 // Schema definition
 const registerSchema =new mongoose.Schema({
-    UserName:{
+    full_name:{
         type: String,
         required: "Please enter ur username"
     },
-    EmailAddress:{
+
+    username:{
+        type: String,
+        required: "Please enter ur username"
+    },
+    email:{
         type:String,
         required: "Please enter your email"
     },
-    Password:{
+    password:{
         type:String,
         required:"Password is required"
     },
@@ -19,7 +24,7 @@ const registerSchema =new mongoose.Schema({
 });
 
 registerSchema.add({
-    UserName:{
+    username:{
         type:String, unique:true, 
         required:'Please enter another  usernametaken'
     } 
@@ -27,7 +32,7 @@ registerSchema.add({
 
 // pre-save (applies to the password, especially confirm password)  bycrypt
 registerSchema.pre('save', function(next){
-    this.Password = bycryptjs.hashSync(this.Password, 10);
+    this.Password = bycryptjs.hashSync(this.password, 10);
     next()
 })
 // hashing is the process of encryption

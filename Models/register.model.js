@@ -32,7 +32,7 @@ registerSchema.add({
 
 // pre-save (applies to the password, especially confirm password)  bycrypt
 registerSchema.pre('save', function(next){
-    this.Password = bycryptjs.hashSync(this.password, 10);
+    this.Password = bcryptjs.hashSync(this.password, 10);
     next()
 })
 // hashing is the process of encryption
@@ -44,7 +44,7 @@ registerSchema.static.authenticate = async function(UserName, Password){
     if(!User){
         throw new Error("user not found")
     }
-    const match = await bycryptjs.compare(Password, User.Password)
+    const match = await bcryptjs.compare(Password, User.Password)
     if(match){
         return User;
     }

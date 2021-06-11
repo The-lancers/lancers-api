@@ -10,6 +10,9 @@ const index = express();
 
 index.use (bodyParser.json());
 index.use (bodyParser.urlencoded());
+index.use('/registers/', registerRoutes);
+index.use('/auth/', userRoutes)
+
 const {PORT, START_UP_MESSAGE} = process.env//calling environment process
 mongoose.connect(DATABASE_URL, { useNewUrlParser: true}).then(
   res =>{

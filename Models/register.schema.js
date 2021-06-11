@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const {Schema} =mongoose
 
 //create a new instance for the above class
-const RegisterSchema = new Schema({
+const RegisterSchema = new moongose.Schema({
     full_name: String,
     username: String,
     email:String,

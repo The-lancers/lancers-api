@@ -5,14 +5,12 @@ const userController = require('../Controllers/user.controller');
 
 
 router.post('/signup', async(req, res) => {
-    const {full_name, username,email,password} = req.body
+    const {email,password} = req.body
     const encrypted = await bcrypt.hash(password, 10)
-    let response =  await userController.registerUser({full_name,username,email, password:encrypted })
+    let response =  await userController.registerUser({email, password:encrypted })
     if(response.error) return res.status(400).json(response.error)
     return res.status(201).json(response)
-    
-   
-   
+      
 })
 
 router.post('/login', async(req, res) => {

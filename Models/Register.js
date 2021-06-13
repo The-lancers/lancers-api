@@ -35,7 +35,7 @@ class Register {
             let updatedRegister = {...register, message: data}
             let position = registers.findIndex(register =>register.pk == id);
             registers[position] = updatedRegister;
-            return {register : register[position]}
+            return {register : registers[position]}
         } else {
             return {message: 'register not found'}
         }

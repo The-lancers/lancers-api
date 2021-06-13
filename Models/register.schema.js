@@ -1,13 +1,15 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
 
-//extract tha class
-const {Schema} =mongoose
-
-//create a new instance for the above class
-const RegisterSchema = new moongose.Schema({
-    full_name: String,
-    username: String,
-    email:String,
-    password:String
+// structure of our data to be stored
+const RegisterSchema = new mongoose.Schema({
+  fullName: String,
+  email: String,
+  password:String,
+  gender:String,
+  location:String
 });
-module.exports =RegisterSchema;
+
+// const ReviewModel = mongoose.model('Review', ReviewSchema, 'reviews');
+
+// module.exports =  ReviewModel;
+module.exports = RegisterSchema;

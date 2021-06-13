@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const registerRoutes = require('./Routes/register.routes');
+const registerRoutes = require('./Routes/registers.routes');
 const userRoutes = require('./Routes/user.routes');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cors());
 
-app.use('/reviews/', registerRoutes);
+app.use('/registers/', registerRoutes);
 app.use('/auth/', userRoutes)
 
 

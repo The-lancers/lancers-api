@@ -7,7 +7,6 @@ const schema = Joi.object({
 const UserSchema = new mongoose.Schema({
     email: String,
     password:String
-    
 })
 
 schema.validate(UserSchema)

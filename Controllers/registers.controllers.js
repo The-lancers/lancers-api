@@ -1,6 +1,6 @@
 // import the model
 const {Register, registers} = require('../Models/Register');
-const  RegisterModel = require('../Models/Register.model');
+const  RegisterModel = require('../Models/register.model');
 
 const fetchAllRegisters = async () => {
     let response 
@@ -18,8 +18,8 @@ const fetchAllRegisters = async () => {
 
 const createRegister = async (register) => {
     // use mongodb to create a new object
-    const {full_name, username,email,password} = register;
-    let registerData = new RegisterModel({full_name, username,email,password})
+    const {full_name,email,password,location,gender} = register;
+    let registerData = new RegisterModel({full_name,email,password,location,gender})
     return await registerData.save()
 }
 

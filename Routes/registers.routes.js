@@ -1,5 +1,6 @@
-const router = express.Router();  
-const reviewControllers = require('../Controllers/registers.controllers');
+const express = require ('express');
+const router = express.Router(); 
+const registerControllers = require('../Controllers/registers.controllers');
 
 // implement application routes / endpoints
 router.get('/', async (req, res)=> {
